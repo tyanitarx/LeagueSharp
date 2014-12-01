@@ -115,11 +115,11 @@ namespace AutoAttackResetter
         {
             if (special3 == true)
             {
-                if (ObjectManager.Player.BaseSkinName == "Jayce" && Player.Spellbook.GetSpell(SpellSlot.Q).Name == "ShockBlast")
+                if (ObjectManager.Player.ChampionName == "Jayce" && Player.Spellbook.GetSpell(SpellSlot.Q).Name == "ShockBlast")
                 {
                     correctForm = true;
                 }
-                if (ObjectManager.Player.BaseSkinName == "Nidalee" && Player.Spellbook.GetSpell(SpellSlot.Q).Name == "Javelin")
+                if (ObjectManager.Player.ChampionName == "Nidalee" && Player.Spellbook.GetSpell(SpellSlot.Q).Name == "Takedown")
                 {
                     correctForm = true;
                 }
