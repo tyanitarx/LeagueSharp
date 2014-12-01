@@ -139,6 +139,14 @@ namespace AutoAttackResetter
                     {
                         Reset.Cast(target.Position);
                     }
+                    else if (special3 = true && correctForm)
+                    {
+                        Reset.Cast();
+                    }
+                    else if (special3 = true && !correctForm)
+                    {
+                        correctForm = false;
+                    }
                     else
                     {
                         Reset.Cast();
@@ -158,6 +166,10 @@ namespace AutoAttackResetter
                     else if (special3 = true && correctForm)
                     {
                         Reset.Cast();
+                    }
+                    else if (special3 = true && !correctForm)
+                    {
+                        correctForm = false;
                     }
                     else
                     {
