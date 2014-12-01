@@ -16,6 +16,8 @@ namespace AutoAttackResetter
         public static Menu Config;
         private Boolean special;
         private Boolean special2;
+        private Boolean special3;
+        private Boolean correctForm;
         public AutoAttackReset()
         {
             CustomEvents.Game.OnGameLoad += Game_OnGameLoad;
@@ -44,11 +46,17 @@ namespace AutoAttackResetter
                     break;
                 case "Garen": Reset = new Spell(SpellSlot.Q);
                     break;
+                case "Hecarim": Reset = new Spell(SpellSlot.E);
+                    break;
                 case "Jayce": Reset = new Spell(SpellSlot.W);
+                    break;
+                case "Kassadin": Reset = new Spell(SpellSlot.W);
                     break;
                 case "MissFortune": Reset = new Spell(SpellSlot.Q);
                     break;
                 case "Mordekaiser": Reset = new Spell(SpellSlot.Q);
+                    break;
+                case "Nasus": Reset = new Spell(SpellSlot.Q);
                     break;
                 case "Nautilus": Reset = new Spell(SpellSlot.W);
                     break;
@@ -57,6 +65,8 @@ namespace AutoAttackResetter
                 case "Riven": Reset = new Spell(SpellSlot.Q);
                     break;
                 case "Sejuani": Reset = new Spell(SpellSlot.W);
+                    break;
+                case "Shyvana": Reset = new Spell(SpellSlot.Q);
                     break;
                 case "Sivir": Reset = new Spell(SpellSlot.W);
                     break;
@@ -67,6 +77,8 @@ namespace AutoAttackResetter
                 case "Volibear": Reset = new Spell(SpellSlot.Q);
                     break;
                 case "Wukong": Reset = new Spell(SpellSlot.Q);
+                    break;
+                case "XinZhao": Reset = new Spell(SpellSlot.Q);
                     break;
                 case "Yorick": Reset = new Spell(SpellSlot.Q);
                     break;
@@ -79,8 +91,11 @@ namespace AutoAttackResetter
                             break;
                         case "Riven": special2 = true;
                             break;
+                        case "Nidalee": special3 = true;
+                            break;
+                        case "Jayce": special3 = true;
+                            break;
                     }
-
             }
             Game.PrintChat(ObjectManager.Player.ChampionName + " Loaded");
             //Menu
@@ -91,8 +106,23 @@ namespace AutoAttackResetter
 
             //Events
             Orbwalking.AfterAttack += Orbwalking_AfterAttack;
+            Game.OnGameUpdate += Game_OnGameUpdate;
         }
 
+        private void Game_OnGameUpdate(EventArgs args)
+        {
+            if (special3 == true)
+            {
+                if (ObjectManager.Player.BaseSkinName == "Jayce" && Player.Spellbook.GetSpell(SpellSlot.Q).Name == "ShockBlast")
+                {
+                    correctForm = true;
+                }
+                if (ObjectManager.Player.BaseSkinName == "Nidalee" && Player.Spellbook.GetSpell(SpellSlot.Q).Name == "Javelin")
+                {
+                    correctForm = true;
+                }
+            }
+        }
 
         private void Orbwalking_AfterAttack(Obj_AI_Base unit, Obj_AI_Base target)
         {
@@ -124,6 +154,10 @@ namespace AutoAttackResetter
                     else if (special2 == true)
                     {
                         Reset.Cast(target.Position);
+                    }
+                    else if (special3 = true && correctForm)
+                    {
+                        Reset.Cast();
                     }
                     else
                     {
