@@ -60,6 +60,8 @@ namespace AutoAttackResetter
                     break;
                 case "Nautilus": Reset = new Spell(SpellSlot.W);
                     break;
+                case "Nidalee": Reset = new Spell(SpellSlot.Q);
+                    break;
                 case "Renekton": Reset = new Spell(SpellSlot.W);
                     break;
                 case "Riven": Reset = new Spell(SpellSlot.Q);
