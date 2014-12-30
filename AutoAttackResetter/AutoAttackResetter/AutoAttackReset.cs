@@ -126,7 +126,7 @@ namespace AutoAttackResetter
             }
         }
 
-        private void Orbwalking_AfterAttack(Obj_AI_Base unit, Obj_AI_Base target)
+        private void Orbwalking_AfterAttack(AttackableUnit unit, AttackableUnit target)
         {
             if (unit.IsMe && target.IsValidTarget())
             {
