@@ -13,7 +13,6 @@ namespace CloneOrb2
     {
         public static Menu Config;
         static Obj_AI_Base clone;
-        static System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Demon\Desktop\LeagueSharp.txt", true);
 
         public static void Main(string[] args)
         {
