@@ -65,8 +65,8 @@ namespace CloneOrb2
                     return;
                 }
 
-                var target = TargetSelector.GetTarget(800, TargetSelector.DamageType.Physical, true, null, pet.Position);
-
+                var target = TargetSelector.GetTarget(1500, TargetSelector.DamageType.Physical, true, null, pet.Position);
+                ObjectManager.Player.IssueOrder(GameObjectOrder.MoveTo, pet.Position);
                 if ((pet.CanAttack && !pet.IsWindingUp && !pet.Spellbook.IsAutoAttacking &&
                       target.IsValidTarget(Orbwalking.GetRealAutoAttackRange(pet))))
                 {
